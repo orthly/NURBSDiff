@@ -1,9 +1,7 @@
-import os
 from setuptools import setup, find_packages
-import torch
 from torch.utils.cpp_extension import BuildExtension, CppExtension,CUDAExtension
 
-if torch.cuda.is_available():
+try:
     setup(
         name='pippableNURBSDiff',
         url="https://github.com/orthly/NURBSDiff",
@@ -24,8 +22,9 @@ if torch.cuda.is_available():
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages())
-else:
+        packages=find_packages(),
+        version='0.0.1')
+except:
     print('installation of NURBSDiff with GPU wasnt successful, installing CPU version')
     setup(
         name='pippableNURBSDiff',
@@ -41,4 +40,5 @@ else:
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages())
+        packages=find_packages(),
+        version='0.0.1')
