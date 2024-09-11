@@ -20,7 +20,7 @@ if (fabs(u-U[n+1]) < eps)
 int low = p;
 int high = n+1;
 int mid = (low + high)/2;
-while (u < U[mid]-eps || u>=U[mid+1]+eps)
+while (u < U[mid]-eps || u>=U[mid+1]-eps)
 { if (u < U[mid]-eps)
     high = mid;
     else
