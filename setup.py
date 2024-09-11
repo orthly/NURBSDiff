@@ -22,8 +22,7 @@ try:
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages(),
-        version='0.0.1')
+        packages=find_packages())
 except:
     print('installation of NURBSDiff with GPU wasnt successful, installing CPU version')
     setup(
@@ -40,5 +39,4 @@ except:
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages(),
-        version='0.0.1')
+        packages=find_packages())
