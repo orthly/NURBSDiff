@@ -1,10 +1,12 @@
 import os
 from setuptools import setup, find_packages
+import torch
 from torch.utils.cpp_extension import BuildExtension, CppExtension,CUDAExtension
 
-try:
+if torch.cuda.is_available():
     setup(
         name='NURBSDiff',
+        url="https://github.com/orthly/NURBSDiff",
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
                 sources=['NURBSDiff/csrc/curve_eval.cpp','NURBSDiff/csrc/utils.cpp'],
@@ -22,11 +24,12 @@ try:
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages(),)
-except:
+        packages=find_packages())
+else:
     print('installation of NURBSDiff with GPU wasnt successful, installing CPU version')
     setup(
         name='NURBSDiff',
+        url="https://github.com/orthly/NURBSDiff",
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
                 sources=['NURBSDiff/csrc/curve_eval.cpp','NURBSDiff/csrc/utils.cpp'],
@@ -38,4 +41,4 @@ except:
         cmdclass={
             'build_ext': BuildExtension
         },
-        packages=find_packages(),)
+        packages=find_packages())
