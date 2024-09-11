@@ -1,6 +1,5 @@
 import torch
 import numpy as np
-from torch import nn
 from torch.autograd import Variable
 from NURBSDiff.curve_eval_cpp import forward as cpp_forward, backward as cpp_backward, pre_compute_basis as cpp_pre_compute_basis
 from NURBSDiff.curve_eval_cuda import pre_compute_basis, forward, backward
