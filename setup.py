@@ -5,7 +5,7 @@ from torch.utils.cpp_extension import BuildExtension, CppExtension,CUDAExtension
 
 if torch.cuda.is_available():
     setup(
-        name='NURBSDiff',
+        name='pippableNURBSDiff',
         url="https://github.com/orthly/NURBSDiff",
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
@@ -28,7 +28,7 @@ if torch.cuda.is_available():
 else:
     print('installation of NURBSDiff with GPU wasnt successful, installing CPU version')
     setup(
-        name='NURBSDiff',
+        name='pippableNURBSDiff',
         url="https://github.com/orthly/NURBSDiff",
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
