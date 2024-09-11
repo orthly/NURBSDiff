@@ -10,10 +10,10 @@ if torch.cuda.is_available():
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
                 sources=['NURBSDiff/csrc/curve_eval.cpp','NURBSDiff/csrc/utils.cpp'],
-                extra_include_paths=['NURBSDiff/csrc/utils.h','NURBSDiff/csrc/curve_eval.h']),
+                include_dirs=['NURBSDiff/csrc']),
             CppExtension(name='NURBSDiff.surf_eval_cpp',
                 sources=['NURBSDiff/csrc/surf_eval.cpp','NURBSDiff/csrc/utils.cpp'],
-                extra_include_paths=['NURBSDiff/csrc/utils.h','NURBSDiff/csrc/surf_eval.h']),
+                include_dirs=['NURBSDiff/csrc']),
             CUDAExtension(name='NURBSDiff.curve_eval_cuda',
                 sources=['NURBSDiff/csrc/curve_eval_cuda.cpp',
                 'NURBSDiff/csrc/curve_eval_cuda_kernel.cu']),
@@ -33,10 +33,10 @@ else:
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
                 sources=['NURBSDiff/csrc/curve_eval.cpp','NURBSDiff/csrc/utils.cpp'],
-                extra_include_paths=['NURBSDiff/csrc/utils.h','NURBSDiff/csrc/curve_eval.h']),
+                include_dirs=['NURBSDiff/csrc']),
             CppExtension(name='NURBSDiff.surf_eval_cpp',
                 sources=['NURBSDiff/csrc/surf_eval.cpp','NURBSDiff/csrc/utils.cpp'],
-                extra_include_paths=['NURBSDiff/csrc/utils.h','NURBSDiff/csrc/surf_eval.h']),
+                include_dirs=['NURBSDiff/csrc']),
         ],
         cmdclass={
             'build_ext': BuildExtension
