@@ -1,7 +1,7 @@
 [project]
 name = "pipableNURBSDiff"
 authors = [{ name = "N/A" }]
-version="0.0.1"
+version="0.0.2"
 description = "NURBS-diff is a differentiable layer that can be run as a standalone layer for CAD applications like curve fitting, surface fitting, surface offseting, and other applications that rely on Non-uniform rational B-splines (NURBS) for representation.."
 requires-python = ">=3.8,<3.12"
 readme = "README.md"

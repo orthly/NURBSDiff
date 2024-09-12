@@ -19,12 +19,11 @@ try:
     setup(
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
-                         sources=['NURBSDiff/csrc/curve_eval.cpp', 'NURBSDiff/csrc/utils.cpp',
-                                  'NURBSDiff/csrc/utils.h'],
+                         sources=['NURBSDiff/csrc/curve_eval.cpp', 'NURBSDiff/csrc/utils.cpp'],
                          include_dirs=[extensions_dir],
                          extra_compile_args=extra_compile_args),
             CppExtension(name='NURBSDiff.surf_eval_cpp',
-                         sources=['NURBSDiff/csrc/surf_eval.cpp', 'NURBSDiff/csrc/utils.cpp', 'NURBSDiff/csrc/utils.h'],
+                         sources=['NURBSDiff/csrc/surf_eval.cpp', 'NURBSDiff/csrc/utils.cpp'],
                          include_dirs=[extensions_dir],
                          extra_compile_args=extra_compile_args),
             CUDAExtension(name='NURBSDiff.curve_eval_cuda',
@@ -45,12 +44,11 @@ except:
     setup(
         ext_modules=[
             CppExtension(name='NURBSDiff.curve_eval_cpp',
-                         sources=['NURBSDiff/csrc/curve_eval.cpp', 'NURBSDiff/csrc/utils.cpp',
-                                  'NURBSDiff/csrc/utils.h'],
+                         sources=['NURBSDiff/csrc/curve_eval.cpp', 'NURBSDiff/csrc/utils.cpp'],
                          include_dirs=[extensions_dir],
                          extra_compile_args=extra_compile_args),
             CppExtension(name='NURBSDiff.surf_eval_cpp',
-                         sources=['NURBSDiff/csrc/surf_eval.cpp', 'NURBSDiff/csrc/utils.cpp', 'NURBSDiff/csrc/utils.h'],
+                         sources=['NURBSDiff/csrc/surf_eval.cpp', 'NURBSDiff/csrc/utils.cpp'],
                          include_dirs=[extensions_dir],
                          extra_compile_args=extra_compile_args),
         ],
