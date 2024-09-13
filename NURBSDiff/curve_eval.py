@@ -12,7 +12,7 @@ class CurveEval(torch.nn.Module):
     """
 
     def __init__(self, num_control_points: int, knot_vectors: torch.Tensor | None = None,
-                 dimension: int = 3, order: int = 2, out_dim: int = 32, method: str = 'cpp'):
+                 dimension: int = 3, order: int = 2, out_dim: int = 32, method: str = 'tc'):
         """Initialize the curve evaluation.
 
         Args:
