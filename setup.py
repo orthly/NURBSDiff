@@ -9,7 +9,7 @@ class BuildExtension(torch.utils.cpp_extension.BuildExtension):
         super().__init__(use_ninja=False, *args, **kwargs)
 
 
-os.putenv('TORCH_CUDA_ARCH_LIST', '5.0;5.2;5.3;6.0;6.1;6.2;7.0;7.2;7.5;8.0;8.6;8.7;8.9;9.0')
+os.environ["TORCH_CUDA_ARCH_LIST"] = '5.0;5.2;5.3;6.0;6.1;6.2;7.0;7.2;7.5;8.0;8.6;8.7;8.9;9.0'
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
 extensions_dir = os.path.join(this_dir, "NURBSDiff", "csrc")
