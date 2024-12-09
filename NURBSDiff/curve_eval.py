@@ -42,8 +42,14 @@ class CurveEval(torch.nn.Module):
         self.curve_param = torch.linspace(0.0, 1.0, steps=out_dim, dtype=torch.float32)
         self.method = method
         self.curve_parameter_span_cpu, self.new_curve_param_cpu = cpp_pre_compute_basis(self.curve_param, self.knot_vectors, num_control_points, order, out_dim, self._dimension)
-        self.curve_parameter_span_cuda, self.new_curve_param_cuda = pre_compute_basis(self.curve_param.cuda(), self.knot_vectors.cuda(), num_control_points, order, out_dim, self._dimension)
+        # --- Induces illegal memory access issues when called repeatedly without kernel restart ---
+        # todo: fix CPP code in `pre_compute_bases`
+        #self.curve_parameter_span_cuda, self.new_curve_param_cuda = pre_compute_basis(self.curve_param.cuda(), self.knot_vectors.cuda(), num_control_points, order, out_dim, self._dimension)
 
+        # --- Move the pre-computed parameters from cpu to gpu ---
+        self.curve_parameter_span_cuda = self.curve_parameter_span_cpu.cuda()
+        self.new_curve_param_cuda = self.new_curve_param_cpu.cuda()
+                     
     def forward(self, input: torch.Tensor) -> torch.Tensor:
         """Forward pass of the module.
 
